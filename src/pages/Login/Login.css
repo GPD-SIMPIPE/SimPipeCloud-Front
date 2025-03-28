@@ -1,0 +1,147 @@
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.login-left {
+  flex: 1;
+  background-color: #004E54;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 2rem;
+}
+
+.login-left img {
+  max-width: 50%;
+  margin-top: 2rem;
+}
+
+.login-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-group {
+  
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+.password-input {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.btn {
+  width: 100%;
+  background-color: #007C86;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 15px 50px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background-color: black;
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.signup-text a {
+  color: #007C86;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 1024px) {
+  .login-left img {
+    max-width: 80%;
+  }
+
+  .login-form {
+    max-width: 350px;
+  }
+
+  .btn {
+    padding: 12px 40px;
+    font-size: 18px;
+  }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left {
+    padding: 1rem;
+    min-height: 30vh;
+  }
+
+  .login-left img {
+    max-width: 50%;
+    margin-top: 1rem;
+  }
+
+  .login-right {
+    padding: 1.5rem;
+  }
+
+  .login-form {
+    max-width: 100%;
+  }
+
+  .form-group input {
+    padding: 0.6rem;
+  }
+
+  .btn {
+    padding: 10px 30px;
+    font-size: 16px;
+  }
+} 

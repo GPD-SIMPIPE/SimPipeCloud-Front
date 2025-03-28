@@ -1,0 +1,25 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+.btn{
+  background-color: #007C86;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 15px 50px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  
+}
+
+.btn:hover {
+  background-color: black;
+}
