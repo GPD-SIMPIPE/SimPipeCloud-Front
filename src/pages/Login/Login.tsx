@@ -13,7 +13,7 @@ function Login() {
 
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Lógica de autenticação aqui
+    // Lógica de autenticação
     console.log('Login tentado', email, password);
   }
 
@@ -25,7 +25,7 @@ function Login() {
   return (
 
     <div className="flex h-screen">
-      {/* Lado Esquerdo - Imagem Ilustrativa */}
+
       <div className="w-1/2 bg-[#00353D] flex justify-center items-center">
         <div className="text-center text-white">
           <div className="w-[300px] mx-auto">
@@ -58,8 +58,8 @@ function Login() {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Fernando@simpipe.com.br"
-              className="w-full px-3 py-2 border rounded-md border-gray-300"
+              placeholder="Digite Seu Email"
+              className="w-full px-3 py-2 border rounded-lg border-gray-300"
               required 
             />
           </div>
@@ -77,8 +77,8 @@ function Login() {
               id="senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="**************"
-              className="w-full px-3 py-2 border rounded-md border-gray-300 pr-10"
+              placeholder="Digite Sua Senha"
+              className="w-full px-3 py-2 border rounded-lg border-gray-300 pr-10"
               required 
             />
             <button 
@@ -93,13 +93,13 @@ function Login() {
           {/* Botão de Login */}
           <button 
             type="submit" 
-            className="w-full bg-[#00353D] text-white py-3 rounded-md hover:opacity-90 transition-all"
+            className="w-full bg-[#00353D] text-white py-3 rounded-lg hover:opacity-90 transition-all"
           >
             Login
           </button>
 
           {/* Link para Cadastro */}
-          <div className="text-center mt-4 text-[#00353D]">
+          <div className="text-center mt-4 text-[#white]">
             Não tem uma conta? 
             <button 
               type="button"
