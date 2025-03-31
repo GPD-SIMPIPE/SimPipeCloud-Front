@@ -6,7 +6,7 @@
 
 /* Lado esquerdo com imagem ilustrativa */
 .left-section {
-  width: 50vh;
+  width: 100vh;
   background-color: #042C2E;
   color: white;
   display: flex;
@@ -28,7 +28,7 @@
 /* Lado direito com formulário */
 .right-section {
   background-color: white;
-  width: 50vh;
+  width: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
