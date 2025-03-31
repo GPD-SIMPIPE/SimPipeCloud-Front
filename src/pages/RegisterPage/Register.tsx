@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { Link } from "react-router-dom";
 import "../GlobalCss/LoginRegisterPage.css";
 import ilustracao from "../../assets/ilustracao.png";
 
@@ -63,7 +64,7 @@ function Register() {
           
           <button className="login-button">Cadastrar</button>
           
-            <label className="login-label">Ja tem uma conta? <a href="/Login" style={{ color: "black" }}>Faça Login</a></label>
+            <label className="login-label">Ja tem uma conta? <Link to="/" style={{ color: "black" }}>Faça Login</Link></label>
           </div>
         </div>
       </div>   
