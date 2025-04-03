@@ -6,7 +6,7 @@
 
 /* Lado esquerdo com imagem ilustrativa */
 .left-section {
-  width: 50%;
+  width: 100vh;
   background-color: #042C2E;
   color: white;
   display: flex;
@@ -27,10 +27,13 @@
 
 /* Lado direito com formulário */
 .right-section {
-  width: 50%;
+  background-color: white;
+  width: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0px;
+  margin: 0px;
 }
 
 .form-container {
@@ -40,11 +43,15 @@
 }
 
 .label {
+  text-align: left;
+  color: black;
   font-size: 14px;
   margin-bottom: 5px;
 }
 
 .input {
+  background-color: white;
+  color: black;
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -63,6 +70,7 @@
 }
 
 .toggle-password {
+  color: black;
   position: absolute;
   right: 10px;
   background: none;
@@ -92,4 +100,11 @@
   color: #042C2E;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.login-label {
+  color: black;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
 }
