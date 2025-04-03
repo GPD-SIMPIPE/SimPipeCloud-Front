@@ -1,9 +1,43 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import "./Login.css";
+import axios from "axios";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // Estado para armazenar erros
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post("https://localhost:7268/api/Auth/login", {
+        email,
+        password,
+      });
+
+      localStorage.setItem("token", response.data.token);
+      alert("Login bem-sucedido!");
+      // Aqui você pode redirecionar para outra página
+    } catch (error: any) {
+      if (error.response) {
+        if (error.response.status === 400) {
+          setError("Requisição inválida. Verifique os dados inseridos.");
+        } else if (error.response.status === 401) {
+          setError("Usuário ou senha incorretos.");
+        } else if (error.response.status === 403) {
+          setError("Acesso negado. Você não tem permissão para acessar.");
+        } else if (error.response.status === 500) {
+          setError("Erro interno do servidor. Tente novamente mais tarde.");
+        } else {
+          setError(`Erro ${error.response.status}: ${error.response.data}`);
+        }
+      } else if (error.request) {
+        setError("Não foi possível conectar ao servidor. Verifique sua conexão.");
+      } else {
+        setError(`Erro desconhecido: ${error.message}`);
+      }    }
+  };
 
   return (
     <div className="container">
@@ -16,7 +50,7 @@ export default function LoginPage() {
           className="illustration"
         />
       </div>
-      
+
       {/* Lado direito com o formulário de login */}
       <div className="right-section">
         <div className="form-container">
@@ -25,14 +59,18 @@ export default function LoginPage() {
             type="email"
             className="input"
             placeholder="Digite Seu Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          
+
           <label className="label">Senha</label>
           <div className="password-container">
             <input
               type={showPassword ? "text" : "password"}
               className="input password-input"
               placeholder="Digite Sua Senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button
               type="button"
@@ -42,11 +80,15 @@ export default function LoginPage() {
               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
           </div>
-          
-          <button className="login-button">Login</button>
-          
+
+          {error && <div className="error-message">{error}</div>} {/* Exibir erro */}
+
+          <button className="login-button" onClick={handleLogin}>
+            Login
+          </button>
+
           <div className="register-link">
-            Não tem uma conta? <a href="#">Faça Cadastro</a>
+            Não tem uma conta? <a href="../RegisterPage/register">Faça Cadastro</a>
           </div>
         </div>
       </div>
