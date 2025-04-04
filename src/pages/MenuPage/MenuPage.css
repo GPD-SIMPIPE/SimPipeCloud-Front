@@ -1,5 +1,5 @@
 .initial-page {
-  padding: 40px;
+  padding: 80px 20px 40px; /* top padding compensando o header fixo */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -69,4 +69,24 @@
 
 .card-button:hover {
   background-color: #00695C;
-} 
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .module-card {
+    padding: 20px;
+  }
+
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+}
