@@ -45,7 +45,7 @@ function LoginPage() {
           </div>
           
           <button className="login-button">Login</button>
-          
+          teste
           <div className="register-link">
             <label className="login-label">Não tem uma conta? <a href="/Register" style={{ color: "black" }}>Faça Cadastro</a></label>
           </div>
