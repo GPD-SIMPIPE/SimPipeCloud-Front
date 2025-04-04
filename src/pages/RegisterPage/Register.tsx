@@ -22,9 +22,18 @@ function Register() {
         console.error('Erro ao carregar empresas:', erro);
       }
     }
-
+  
     carregarEmpresas();
   }, []);
+  
+  // Adiciona a classe no body
+  useEffect(() => {
+    document.body.classList.add("login-register-mode");
+    return () => {
+      document.body.classList.remove("login-register-mode");
+    };
+  }, []);
+  
 
   const handleCadastro = async () => {
     if (!nome || !email || !senha || !empresaSelecionada) {

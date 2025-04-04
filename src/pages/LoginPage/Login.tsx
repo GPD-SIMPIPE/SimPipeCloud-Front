@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect  } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import "../GlobalCss/LoginRegisterPage.css";
 import logo from "../../assets/LogoBranca.png";
@@ -9,6 +9,13 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(""); 
+
+  useEffect(() => {
+    document.body.classList.add("login-register-mode");
+    return () => {
+      document.body.classList.remove("login-register-mode");
+    };
+  }, []);
 
   const handleLogin = async () => {
     try {

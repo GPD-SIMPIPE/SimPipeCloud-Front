@@ -111,23 +111,21 @@ body {
   background-color: #f0f0f0;
 }
 
-/* Responsivo */
 @media (max-width: 600px) {
   .header {
     flex-direction: column;
-    align-items: center; /* Centraliza tudo no header */
+    align-items: center;
     padding: 10px 20px;
     text-align: center;
   }
 
   .logo-container {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+        display: none; /* Oculta o título em telas menores */
+
   }
 
   .logo-container h1 {
-    font-size: 1.3rem;
+    display: none; /* Oculta o título em telas menores */
   }
 
   .header-right {
@@ -136,3 +134,4 @@ body {
     margin-top: 10px;
   }
 }
+

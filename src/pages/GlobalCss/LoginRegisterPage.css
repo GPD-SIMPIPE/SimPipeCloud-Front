@@ -1,3 +1,6 @@
+.body{
+  padding-top: 0px;
+}
 .container {
   display: flex;
   height: 100vh;
@@ -16,7 +19,7 @@
 }
 
 .logo {
-  width: 100px;
+  width: 200px;
 }
 
 /* Lado direito */

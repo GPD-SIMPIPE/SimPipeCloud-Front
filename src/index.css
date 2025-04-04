@@ -24,6 +24,14 @@ body {
   overflow: hidden;
 }
 
+body.login-register-mode {
+  padding-top: 0px !important;
+}
+
+body.login-register-mode header {
+  display: none !important;
+}
+
 .content {
   flex: 1;
   padding: 20px;
