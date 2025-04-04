@@ -112,15 +112,12 @@
     flex-direction: column;
   }
 
-  .left-section{
-    height: 15vh;
-  }
 
   .left-section,
   .right-section {
     width: 100%;
     flex: none;
-    /* height: 50vh; */
+    height: 50vh;
   }
 
   .left-section {
@@ -144,6 +141,6 @@
   }
 
   .login-logo {
-    width: 80px;
+    width: 150px;
   }
 }
