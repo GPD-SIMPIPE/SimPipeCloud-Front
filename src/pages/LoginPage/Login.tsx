@@ -56,7 +56,7 @@ function LoginPage() {
         <img
           src={logo}
           alt="Logo SimPipe"
-          className="logo"
+          className="login-logo"
         />
         </a>
       </div>

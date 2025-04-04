@@ -70,7 +70,7 @@ function Register() {
     <div className="container">
       <div className="left-section">
         <a href="https://simpipe.com/" target="_blank" rel="noopener noreferrer">
-          <img src={logo} alt="Logo SimPipe" className="logo" />
+          <img src={logo} alt="Logo SimPipe" className="login-logo" />
         </a>
       </div>
 
