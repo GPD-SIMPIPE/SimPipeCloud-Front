@@ -1,44 +1,37 @@
-/* Estilos gerais */
 .container {
   display: flex;
   height: 100vh;
+  flex-direction: row;
 }
 
-/* Lado esquerdo com imagem ilustrativa */
+/* Lado esquerdo */
 .left-section {
-  width: 100vh;
+  flex: 1;
   background-color: #042C2E;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
-.title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  font-weight: bold;
+.logo {
+  width: 100px;
 }
 
-.illustration {
-  width: 200px;
-}
-
-/* Lado direito com formulário */
+/* Lado direito */
 .right-section {
+  flex: 1;
   background-color: white;
-  width: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0px;
-  margin: 0px;
+  padding: 20px;
 }
 
 .form-container {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
 }
@@ -108,4 +101,42 @@
   text-align: center;
   margin-top: 15px;
   font-size: 14px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+    flex: none;
+    height: 50vh;
+  }
+
+  .left-section {
+    padding: 20px;
+  }
+
+  .right-section {
+    padding: 40px 20px;
+  }
+
+  .form-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .input,
+  .login-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .logo {
+    width: 80px;
+  }
 }
