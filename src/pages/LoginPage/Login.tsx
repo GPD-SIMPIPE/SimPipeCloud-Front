@@ -1,13 +1,8 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import "../GlobalCss/LoginRegisterPage.css";
-<<<<<<< Updated upstream
-import ilustracao from "../../assets/ilustracao.png";
-import logo from "../../assets/logo-preta.png";
-import axios from "axios";
-=======
 import logo from "../../assets/LogoBranca.png";
->>>>>>> Stashed changes
+import axios from "axios";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -49,12 +44,8 @@ function LoginPage() {
     <div className="container">
       {/* Lado esquerdo com imagem ilustrativa */}
       <div className="left-section">
-<<<<<<< Updated upstream
         {/* <div className="title">SimCloud</div> */}
         <a href="https://simpipe.com/" target="_blank" rel="noopener noreferrer">
-=======
-        <div className="title">SimPipe Cloud</div>
->>>>>>> Stashed changes
         <img
           src={logo}
           alt="Imagem Ilustrativa"
