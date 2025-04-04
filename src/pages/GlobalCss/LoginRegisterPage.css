@@ -17,12 +17,20 @@
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
+<<<<<<< Updated upstream
 .illustration {
   width: 200px;
+=======
+.logo {
+  width: 3000px;
+  height: auto;
+  margin-bottom: 20px;
+>>>>>>> Stashed changes
 }
 
 /* Lado direito com formulário */

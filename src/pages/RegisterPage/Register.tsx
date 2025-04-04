@@ -3,7 +3,11 @@ import axios from 'axios';
 import { Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../GlobalCss/LoginRegisterPage.css";
+<<<<<<< Updated upstream
 import logo from "../../assets/logo-preta.png";
+=======
+import logo from "../../assets/LogoBranca.png";
+>>>>>>> Stashed changes
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -60,9 +64,19 @@ function Register() {
   return (
     <div className="container">
       <div className="left-section">
+<<<<<<< Updated upstream
         <a href="https://simpipe.com/" target="_blank" rel="noopener noreferrer">
           <img src={logo} alt="Imagem Ilustrativa" className="illustration" />
         </a>
+=======
+        <div className="title">SimCloud
+        </div>
+        <img
+          src={logo}
+          alt="Imagem Ilustrativa"
+          className="logo"
+        />
+>>>>>>> Stashed changes
       </div>
 
       <div className="right-section">
