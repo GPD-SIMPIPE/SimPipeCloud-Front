@@ -51,7 +51,7 @@ function LoginPage() {
     <div className="container">
       {/* Lado esquerdo com imagem ilustrativa */}
       <div className="left-section">
-        {/* <div className="title">SimCloud</div> */}
+        {/* <h1 className="title">SimCloud</h1> */}
         <a href="https://simpipe.com/" target="_blank" rel="noopener noreferrer">
         <img
           src={logo}

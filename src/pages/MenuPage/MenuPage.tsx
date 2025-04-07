@@ -22,14 +22,22 @@ function MenuPage() {
         <h1 className="welcome-title">Bem-vindo ao Simpipe Cloud</h1>
         <p className="welcome-subtitle">Selecione um módulo para começar</p>
         <div className="cards-container">
-          {cards.map((card, index) => (
-            <div key={index} className="module-card">
-              <div className="card-icon">{card.icon}</div>
-              <h2 className="card-title">{card.title}</h2>
-              <p className="card-description">{card.description}</p>
+          <div className="card-column">
+            <div className="module-card">
+              <div className="card-icon">{cards[0].icon}</div>
+              <h2 className="card-title">{cards[0].title}</h2>
+              <p className="card-description">{cards[0].description}</p>
               <button className="card-button">Acessar Módulo</button>
             </div>
-          ))}
+          </div>
+          <div className="card-column">
+            <div className="module-card">
+              <div className="card-icon">{cards[1].icon}</div>
+              <h2 className="card-title">{cards[1].title}</h2>
+              <p className="card-description">{cards[1].description}</p>
+              <button className="card-button">Acessar Módulo</button>
+            </div>
+          </div>
         </div>
       </div>
     </>
