@@ -1,7 +1,8 @@
 import './MenuPage.css';
 import Header from '../../components/Header/Header';
-
+import { useNavigate } from 'react-router-dom';
 function MenuPage() {
+  const navigate = useNavigate();
   const cards = [
     {
       title: 'SimInteg',
@@ -27,7 +28,7 @@ function MenuPage() {
               <div className="card-icon">{cards[0].icon}</div>
               <h2 className="card-title">{cards[0].title}</h2>
               <p className="card-description">{cards[0].description}</p>
-              <button className="card-button">Acessar Módulo</button>
+              <button className="card-button" onClick={() => navigate('/UploadPage')}>Acessar Módulo</button>
             </div>
           </div>
           <div className="card-column">

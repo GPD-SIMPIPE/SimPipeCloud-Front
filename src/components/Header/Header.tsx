@@ -21,9 +21,9 @@ const Header = () => {
 
       <div className="header-right">
         <div className="language-flags">
-          <img src={usFlag} alt="English" className="flag" />
-          <img src={esFlag} alt="Español" className="flag" />
-          <img src={brFlag} alt="Português" className="flag" />
+          <img src={usFlag} alt="English" className="flagEnglish" />
+          <img src={esFlag} alt="Español" className="flagSpanish" />
+          <img src={brFlag} alt="Português" className="flagPortuguese" />
         </div>
 
         <div className="menu-container">

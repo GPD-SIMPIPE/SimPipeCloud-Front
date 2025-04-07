@@ -56,14 +56,36 @@ body {
   gap: 8px;
 }
 
-.flag {
+.flagEnglish {
+  width: 24px;
+  height: 24px;
+  /* cursor: pointer; */
+  transition: opacity 0.3s;
+  opacity: 0.5;
+}
+
+/* .flagEnglish:hover {
+  opacity: 0.8;
+} */
+.flagSpanish {
+  width: 24px;
+  height: 24px;
+  /* cursor: pointer; */
+  transition: opacity 0.3s;
+  opacity: 0.5;
+}
+
+/* .flagSpanish:hover {
+  opacity: 0.8;
+} */
+.flagPortuguese {
   width: 24px;
   height: 24px;
   cursor: pointer;
   transition: opacity 0.3s;
 }
 
-.flag:hover {
+.flagPortuguese:hover {
   opacity: 0.8;
 }
 

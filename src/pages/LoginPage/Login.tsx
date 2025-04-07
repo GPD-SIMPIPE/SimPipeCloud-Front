@@ -1,10 +1,12 @@
 import { useState, useEffect  } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import "../GlobalCss/LoginRegisterPage.css";
 import logo from "../../assets/LogoBranca.png";
 import axios from "axios";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,8 +27,7 @@ function LoginPage() {
       });
 
       localStorage.setItem("token", response.data.token);
-      alert("Login bem-sucedido!");
-      // Aqui você pode redirecionar para outra página
+      navigate("/MenuPage");
     } catch (error: any) {
       if (error.response) {
         if (error.response.status === 400) {
@@ -44,7 +45,8 @@ function LoginPage() {
         setError("Não foi possível conectar ao servidor. Verifique sua conexão.");
       } else {
         setError(`Erro desconhecido: ${error.message}`);
-      }    }
+      }
+    }
   };
 
   return (
@@ -69,6 +71,8 @@ function LoginPage() {
             type="email"
             className="input"
             placeholder="Digite Seu Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           
           <label className="label">Senha</label>
@@ -77,6 +81,8 @@ function LoginPage() {
               type={showPassword ? "text" : "password"}
               className="input password-input"
               placeholder="Digite Sua Senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button
               type="button"
