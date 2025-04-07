@@ -31,11 +31,12 @@ function MenuPage() {
             </div>
           </div>
           <div className="card-column">
-            <div className="module-card">
+            <div className="module-card2">
               <div className="card-icon">{cards[1].icon}</div>
               <h2 className="card-title">{cards[1].title}</h2>
               <p className="card-description">{cards[1].description}</p>
-              <button className="card-button">Acessar Módulo</button>
+              <p className="card-description2">Em desenvolvimento</p>
+              {/* <button className="card-button">Acessar Módulo</button> */}
             </div>
           </div>
         </div>
