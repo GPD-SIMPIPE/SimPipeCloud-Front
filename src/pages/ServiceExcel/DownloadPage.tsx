@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import FileSaver from "file-saver";
 import Header from "../../components/Header/Header";
 import { useLocation, useNavigate } from "react-router-dom";
+import * as XLSX from "xlsx";
 import "./ExcelPages.css";
 
 function DownloadPage() {
@@ -9,7 +10,40 @@ function DownloadPage() {
   const navigate = useNavigate();
   const processedBlob = location.state?.processedBlob;
   const fileName = location.state?.fileName;
-  const results = location.state?.results || [];
+  const [tableData, setTableData] = useState<string[][]>([]);
+
+  useEffect(() => {
+    if (processedBlob) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const data = new Uint8Array(e.target?.result as ArrayBuffer);
+          const workbook = XLSX.read(data, { type: 'array' });
+          const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+          
+          // Converter a planilha para uma matriz de strings
+          const range = XLSX.utils.decode_range(firstSheet['!ref'] || 'A1');
+          const dataArray: string[][] = [];
+          
+          for (let R = range.s.r; R <= range.e.r; ++R) {
+            const row: string[] = [];
+            for (let C = range.s.c; C <= range.e.c; ++C) {
+              const cell_address = { c: C, r: R };
+              const cell_ref = XLSX.utils.encode_cell(cell_address);
+              const cell = firstSheet[cell_ref];
+              row.push(cell ? cell.v : '');
+            }
+            dataArray.push(row);
+          }
+          
+          setTableData(dataArray);
+        } catch (error) {
+          console.error("Erro ao processar o arquivo Excel:", error);
+        }
+      };
+      reader.readAsArrayBuffer(processedBlob);
+    }
+  }, [processedBlob]);
 
   const baixarResultado = () => {
     if (processedBlob) {
@@ -44,46 +78,39 @@ function DownloadPage() {
           <p>Arquivo processado: {fileName}</p>
         </div>
 
-        {results.length > 0 && (
+        {tableData.length > 0 ? (
           <div className="tableContainer">
             <table className="resultTable">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Nome</th>
-                  <th>Status</th>
-                  <th>Mensagem</th>
+                  {tableData[0].map((header, index) => (
+                    <th key={index}>{header}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
-                {results.map((result: any, index: number) => (
-                  <tr key={index}>
-                    <td>{result.id}</td>
-                    <td>{result.nome}</td>
-                    <td>
-                      <span className={`status ${result.status.toLowerCase()}`}>
-                        {result.status}
-                      </span>
-                    </td>
-                    <td>{result.mensagem}</td>
+                {tableData.slice(1).map((row, rowIndex) => (
+                  <tr key={rowIndex}>
+                    {row.map((cell, cellIndex) => (
+                      <td key={cellIndex}>{cell}</td>
+                    ))}
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+        ) : (
+          <p className="loadingText">Carregando dados...</p>
         )}
 
-        <button 
-          className="buttonDownloadTemplate" 
-          onClick={baixarResultado}
-        >
+        <button className="buttonDownloadTemplate" onClick={baixarResultado}>
           Baixar Resultado
         </button>
 
         <button 
-          className="buttonDownloadTemplate secondaryButton" 
+          className="buttonDownloadTemplate secondaryButton"
           onClick={() => navigate("/UploadPage")}
-          style={{ marginTop: '10px' }}
+          style={{ marginTop: "10px" }}
         >
           Processar Novo Arquivo
         </button>
@@ -92,4 +119,4 @@ function DownloadPage() {
   );
 }
 
-export default DownloadPage; 
+export default DownloadPage;

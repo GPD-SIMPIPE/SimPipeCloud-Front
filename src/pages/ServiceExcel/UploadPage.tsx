@@ -58,24 +58,18 @@ function UploadPage() {
       clearInterval(progressInterval);
       setProgress(100);
 
+      console.log("Resposta da API recebida:", response);
       const blob = new Blob([response.data], {
         type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       });
-
-      // Simular resultados para demonstração
-      const mockResults = [
-        { id: 1, nome: "Item 1", status: "Aprovado", mensagem: "Processado com sucesso" },
-        { id: 2, nome: "Item 2", status: "Reprovado", mensagem: "Erro na validação" },
-        { id: 3, nome: "Item 3", status: "Pendente", mensagem: "Aguardando aprovação" }
-      ];
+      console.log("Blob criado:", blob);
 
       // Aguardar um momento para mostrar 100% antes de redirecionar
       setTimeout(() => {
         navigate("/DownloadPage", { 
           state: { 
             processedBlob: blob,
-            fileName: file.name,
-            results: mockResults
+            fileName: file.name
           } 
         });
       }, 1000);

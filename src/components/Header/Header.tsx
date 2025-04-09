@@ -4,9 +4,11 @@ import brFlag from '../../assets/flags/BrazilFlag.png';
 import esFlag from '../../assets/flags/SpainFlag.png';
 import usFlag from '../../assets/flags/USAFlag.png';
 import logo from '../../assets/logo-branca.png';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -15,8 +17,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo-container">
-        <img src={logo} alt="Simpipe Cloud" className="logo" />
-        <h1>SimPipe Cloud</h1>
+        <img 
+        onClick={() => navigate('/MenuPage')} src={logo} alt="Simpipe Cloud" className="logo" />
+        <h1 className="logo-title" onClick={() => navigate('/MenuPage')}>SimPipe Cloud</h1>
       </div>
 
       <div className="header-right">
